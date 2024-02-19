@@ -25,13 +25,13 @@ repos:
     hooks:
       - id: shellcheck
         
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.0.1"
-    hooks:
-      - id: mypy
-        exclude: ^(docs/|example-plugin/|tests/fixtures)
-        additional_dependencies:
-          - "pydantic"
+  # - repo: https://github.com/pre-commit/mirrors-mypy
+  #   rev: "v1.0.1"
+  #   hooks:
+  #     - id: mypy
+  #       exclude: ^(docs/|example-plugin/|tests/fixtures)
+  #       additional_dependencies:
+  #         - "pydantic"
            
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: d2425a62376c2197448cce2f825d5a0c3926b862

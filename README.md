@@ -7,7 +7,7 @@ Start a new python project running
 
 ```
 pip install cookiecutter
-cookiecutter gh:joamatab/python
+cookiecutter gh:jan-david-fischbach/python
 ```
 
 It will ask you some questions to fill the template
