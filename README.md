@@ -12,16 +12,9 @@ cookiecutter gh:jan-david-fischbach/python
 
 It will ask you some questions to fill the template
 
-If you want to run a branch or a different version
-
-```
-cookiecutter gh:joamatab/python --checkout branch_name
-```
-
-
 ## 🚀 Features
 
-In this [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) template we combine state-of-the-art libraries and best development practices for Python.
+In this [cookiecutter 🍪](https://github.com/cookiecutter/cookiecutter) template we combine state-of-the-art libraries and best development practices for Python, with minimal overhead suited for packages developed at TFP@KIT.
 
 
 ### Makefile
@@ -52,12 +45,10 @@ You can comment them in `.pre-commit-config.yaml`
 
 
 ### CI/CD
-
+Primarily the internal Gitlab is used for CI/CD. Should you wish to also use Github I recommend mirror
 See `.github/workflows`
 
 - `test_code.yml`: runs tests for code and docs. Uses `pip install`
-- `test_code_conda.yml`: runs tests. Uses `conda`. Choose this one if some dependencies are only on conda. Otherwise delete this one.
-- release.yml: publishes to PyPI any new releases, need to add Pypi token to your Github account
 - pages.yml: builds docs.
 
 ### README
