@@ -108,4 +108,4 @@ make html
 
 # References
 
-- [cookiecutter](https://github.com/audreyr/cookiecutter) 
+- [cookiecutter](https://github.com/audreyr/cookiecutter)

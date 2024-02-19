@@ -7,4 +7,3 @@
 ## Installation
 
 `make install`
-

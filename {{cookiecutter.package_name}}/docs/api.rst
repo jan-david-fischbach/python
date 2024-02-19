@@ -5,4 +5,3 @@ Config
 ---------------------
 
 .. automodule:: {{ cookiecutter.package_name }}.config
-
