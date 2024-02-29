@@ -9,6 +9,7 @@ authors = [
   {name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}
 ]
 classifiers = [
+  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Operating System :: OS Independent"
@@ -21,7 +22,7 @@ keywords = ["python"]
 license = {file = "LICENSE"}
 name = "{{ cookiecutter.package_name }}"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 version = "{{ cookiecutter.package_version }}"
 
 [project.optional-dependencies]
