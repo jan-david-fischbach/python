@@ -4,6 +4,7 @@ from typing import List
 import textwrap
 from pathlib import Path
 from shutil import move, rmtree
+import subprocess
 
 # Project root directory
 PROJECT_DIRECTORY = Path.cwd().absolute()
@@ -14,7 +15,7 @@ PROJECT_MODULE = (
 CICD = "{{ cookiecutter.cicd }}"
 
 # Values to generate github repository
-GITHUB_USER = "{{ cookiecutter.author_name }}"
+GIT_REMOTE = "{{ cookiecutter.git_remote }}"
 
 
 def remove_unused_files(
@@ -36,7 +37,7 @@ def remove_unused_files(
         rmtree(dirpath)
 
 
-def print_futher_instuctions(package_name: str, github: str) -> None:
+def print_futher_instuctions(package_name: str, remote: str) -> None:
     """Show user what to do next after project creation.
 
     Args:
@@ -60,10 +61,21 @@ def print_futher_instuctions(package_name: str, github: str) -> None:
         $ git add .
         $ git commit -m ":tada: Initial commit"
         $ git branch -M main
-        $ git remote add origin https://github.com/{github}/{package_name}.git
+        $ git remote add origin {remote}
         $ git push -u origin main
     """
     print(textwrap.dedent(message))
+
+def run_setup(package_name: str, remote: str) -> None:
+    subprocess.call(['pip', 'install', "-e", ".[dev]"])
+
+    subprocess.call(['git', 'init'])
+    subprocess.call(['pre-commit', 'install'])
+
+    subprocess.call(['git', 'add', '.'])
+    subprocess.call(['git', 'commit', '-m', ':tada: Initial commit'])
+    subprocess.call(['git', 'remote', 'add', 'origin', remote])
+    subprocess.call(['git', 'push', '-u', 'origin', 'main'])
 
 
 def main() -> None:
@@ -72,7 +84,7 @@ def main() -> None:
         module_name=PROJECT_MODULE,
         cicd=CICD,
     )
-    print_futher_instuctions(package_name=PROJECT_NAME, github=GITHUB_USER)
+    run_setup(package_name=PROJECT_NAME, remote=GIT_REMOTE)
 
 
 if __name__ == "__main__":
